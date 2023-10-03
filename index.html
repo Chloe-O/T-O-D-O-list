@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>T O D O</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>ToDo</h1>
+      <input type="text" placeholder="Create a new todo..." />
+
+      <ul id="todoList">
+        <li class="li-complete"><div class="checkbox checkbox-checked"></div>  Test item one</li>
+        <li><div class="checkbox"></div>  Test item one</li>
+        <li><div class="checkbox"></div>  Test item one</li>
+        <li><div class="checkbox"></div>  Test item one</li>
+      </ul>
+      <div id="foot">
+        <div><span id="itemsNum"></span> items left</div>
+        <div class="filter-btns">
+          <p id="selectAll" >All</p>
+          <p id="selectActive" >Active</p>
+          <p id="selectCompleted" >Completed</p>
+        </div>
+        <p id="cleaCompleted">Clear Completed</p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
