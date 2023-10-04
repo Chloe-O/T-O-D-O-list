@@ -12,7 +12,7 @@ function countListItems() {
   let listItemsNo = 0;
 
   listItems.forEach((li) => {
-    if (li.classList.contains("li-complete")) {
+    if ( !(li.classList.contains("li-complete")) ) {
       listItemsNo++;
       itemsNum.innerHTML = listItemsNo;
     } else {
