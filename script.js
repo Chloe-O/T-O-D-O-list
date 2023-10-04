@@ -16,7 +16,7 @@ function countListItems() {
       listItemsNo++;
       itemsNum.innerHTML = listItemsNo;
     } else {
-      itemsNum.innerHTML = 0;
+      itemsNum.innerHTML = listItemsNo;
     }
   });
 }
