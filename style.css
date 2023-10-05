@@ -93,6 +93,13 @@ body #container ul#todoList li {
   border-bottom: 1px solid rgba(147, 148, 165, 0.3);
   text-transform: capitalize;
 }
+body #container ul#todoList li:hover {
+  cursor: pointer;
+}
+body #container ul#todoList li:hover .delete-item {
+  opacity: 1;
+  pointer-events: visible;
+}
 body #container ul#todoList li .checkbox {
   position: relative;
   height: 22px;
@@ -102,8 +109,11 @@ body #container ul#todoList li .checkbox {
   background: hsl(235, 24%, 19%);
   border: 1px solid hsl(236, 9%, 61%);
 }
-body #container ul#todoList li .checkbox:hover {
-  cursor: pointer;
+body #container ul#todoList li .delete-item {
+  margin-left: auto;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
 }
 body #container ul#todoList li .checkbox-checked {
   background: linear-gradient(105deg, #57ddff, #c058f3);

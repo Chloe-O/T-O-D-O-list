@@ -108,6 +108,15 @@ body {
         border-bottom: 1px solid rgba($light-grey, 0.3);
         text-transform: capitalize;
 
+        &:hover {
+          cursor: pointer;
+
+          .delete-item {
+            opacity: 1;
+            pointer-events: visible;
+          }
+        }
+
         .checkbox {
           position: relative;
           height: 22px;
@@ -117,8 +126,18 @@ body {
           background: $input-list-bg;
           border: 1px solid $light-grey;
 
-          &:hover {
-            cursor: pointer;
+          // &:hover {
+          //   cursor: pointer;
+          // }
+        }
+
+        .delete-item {
+          margin-left: auto;
+          opacity: 0;
+          pointer-events: none;
+          display: flex;
+
+          img {
           }
         }
 

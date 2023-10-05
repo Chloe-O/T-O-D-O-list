@@ -1,5 +1,5 @@
 let todoList = document.getElementById("todoList");
-let listItems = document.querySelectorAll("li");
+// let listItems = document.querySelectorAll("li");
 let checkboxToggle = document.querySelectorAll("li .checkbox");
 const itemsNum = document.getElementById("itemsNum");
 const clearCompleted = document.getElementById("clearCompleted");
@@ -7,62 +7,34 @@ const addItem = document.getElementById("addItemBtn");
 const todoInput = document.getElementById("todoInput");
 
 const toDoArray = [];
-const toDoArrayHTML = [];
+// const deletedItems = [];
 
 //Count list items
 function countListItems() {
   let listItemsNo = 0;
-
-  listItems.forEach((li) => {
-    if (!li.classList.contains("li-complete")) {
-      listItemsNo++;
-      itemsNum.innerHTML = listItemsNo;
-    } else {
-      itemsNum.innerHTML = listItemsNo;
-    }
-  });
+  itemsNum.innerHTML = toDoArray.length;
 }
 
 //Input new list item
 addItem.addEventListener("click", () => {
   if (todoInput.value) {
-    toDoArray.push(todoInput.value);
-    // createHTMLitem();
+    toDoArray.push(
+      `<li class="li-it" ><div class="checkbox"></div>${todoInput.value} <span class="delete-item"> <img src="/images/icon-cross.svg" alt="X"> </span></li>`
+    );
     todoInput.value = "";
+    todoList.innerHTML += toDoArray[toDoArray.length - 1];
     countListItems();
+  } else {
+    //error message in DOM
   }
 });
 
-//Create HTML item
-function createHTMLitem() {
-  toDoArray.forEach((ai) => {
-    ai = `<li><div class="checkbox"></div>${ai}</li>`;
-    toDoArrayHTML.push(ai);
-
-  });
-}
-
-// //Push HTML items into DOM
-// function displayHTMLitem() {
-
-// }
-
-//Toggle completed on click
-checkboxToggle.forEach((ct) => {
-  ct.addEventListener("click", () => {
-    ct.classList.toggle("checkbox-checked");
-    ct.parentNode.classList.toggle("li-complete");
-    countListItems();
-  });
-});
-
-//Clear completed items
-clearCompleted.addEventListener("click", () => {
-  listItems.forEach((i) => {
-    if (i.classList.contains("li-complete")) {
-      console.log(i);
-    }
-  });
+//Check off item
+todoList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("li-it")) {
+    e.target.classList.toggle("li-complete");
+    e.target.firstChild.classList.toggle("checkbox-checked");
+  }
 });
 
 countListItems();
