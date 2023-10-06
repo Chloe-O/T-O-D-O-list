@@ -29,12 +29,21 @@ addItem.addEventListener("click", () => {
   }
 });
 
-//Check off item
+//Check off items
 todoList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("li-it")) {
-    e.target.classList.toggle("li-complete");
-    e.target.firstChild.classList.toggle("checkbox-checked");
+  if (e.target.classList.contains("checkbox")) {
+    console.log(e);
+    e.target.parentElement.classList.toggle("li-complete");
+    e.target.classList.toggle("checkbox-checked");
   }
 });
+
+//Delete item from list
+// todoList.addEventListener("click", (e) => {
+//   if (e.target.lastElementChild.classList.contains("delete-item")) {
+//     console.log("delete me");
+//     // .remove()
+//   }
+// });
 
 countListItems();
