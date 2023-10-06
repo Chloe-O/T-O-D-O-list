@@ -5,6 +5,9 @@ const itemsNum = document.getElementById("itemsNum");
 const clearCompleted = document.getElementById("clearCompleted");
 const addItem = document.getElementById("addItemBtn");
 const todoInput = document.getElementById("todoInput");
+const filterByActive = document.getElementById("selectActive");
+const filterByCompleted = document.getElementById("selectCompleted");
+const showAll = document.getElementById("selectAll");
 
 const toDoArray = [];
 // const deletedItems = [];
@@ -39,17 +42,22 @@ todoList.addEventListener("click", (e) => {
 });
 
 //Clear Completed items
-
 function clearCompletedFunc() {
   let currentListItem = document.getElementsByClassName("li-complete");
   for (let i = 0; i < currentListItem.length; i++) {
-    console.log(currentListItem[i]);
     currentListItem[i].remove();
   }
 }
 
 clearCompleted.addEventListener("click", clearCompletedFunc);
 
+
+//Show active items
+
+
+filterByActive.addEventListener("click", () => {
+  console.log('hello')
+})
 //Delete item from list
 // todoList.addEventListener("click", (q) => {
 //   if (q.target.classList.contains("delete-me")) {
