@@ -32,17 +32,31 @@ addItem.addEventListener("click", () => {
 //Check off items
 todoList.addEventListener("click", (e) => {
   if (e.target.classList.contains("checkbox")) {
-    console.log(e);
+    // console.log(e);
     e.target.parentElement.classList.toggle("li-complete");
     e.target.classList.toggle("checkbox-checked");
   }
 });
 
+//Clear Completed items
+
+function clearCompletedFunc() {
+  let currentListItem = document.getElementsByClassName("li-complete");
+  for (let i = 0; i < currentListItem.length; i++) {
+    console.log(currentListItem[i]);
+    currentListItem[i].remove();
+  }
+}
+
+clearCompleted.addEventListener("click", clearCompletedFunc);
+
 //Delete item from list
-// todoList.addEventListener("click", (e) => {
-//   if (e.target.lastElementChild.classList.contains("delete-item")) {
+// todoList.addEventListener("click", (q) => {
+//   if (q.target.classList.contains("delete-me")) {
 //     console.log("delete me");
 //     // .remove()
+//   } else {
+
 //   }
 // });
 

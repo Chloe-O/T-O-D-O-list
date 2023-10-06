@@ -109,11 +109,12 @@ body {
         text-transform: capitalize;
 
         &:hover {
-          cursor: pointer;
+          // cursor: pointer;
 
           .delete-item {
             opacity: 1;
             pointer-events: visible;
+            cursor: pointer;
           }
         }
 
@@ -126,9 +127,9 @@ body {
           background: $input-list-bg;
           border: 1px solid $light-grey;
 
-          // &:hover {
-          //   cursor: pointer;
-          // }
+          &:hover {
+            cursor: pointer;
+          }
         }
 
         .delete-item {
@@ -136,8 +137,12 @@ body {
           opacity: 0;
           pointer-events: none;
           display: flex;
+          position: relative;
+          z-index: 10;
+          width: fit-content;
 
           img {
+
           }
         }
 
