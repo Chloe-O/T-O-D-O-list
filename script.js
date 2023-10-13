@@ -9,7 +9,7 @@ const filterByActive = document.getElementById("selectActive");
 const filterByCompleted = document.getElementById("selectCompleted");
 const filterAll = document.getElementById("selectAll");
 
-let currentListItem = document.getElementsByClassName("li-complete");
+// let currentListItem = document.getElementsByClassName("li-complete");
 
 const toDoArray = [];
 
@@ -48,8 +48,10 @@ todoList.addEventListener("click", (e) => {
 
 //Clear Completed items
 function clearCompletedFunc() {
-  for (let i = 0; i < currentListItem.length; i++) {
-    currentListItem[i].remove();
+  for (let i = 0; i < listItems.length; i++) {
+    if (listItems[i].classList.contains("li-complete")) {
+      listItems[i].remove();
+    }
   }
   countListItems();
 }
@@ -66,9 +68,9 @@ function showAll() {
 //Filter by active items
 function showActive() {
   showAll();
-  for (let q = 0; q < currentListItem.length; q++) {
-    if (currentListItem[q].classList.contains("li-complete")) {
-      currentListItem[q].classList.add("hide-me");
+  for (let q = 0; q < listItems.length; q++) {
+    if (listItems[q].classList.contains("li-complete")) {
+      listItems[q].classList.add("hide-me");
     }
   }
 }
@@ -81,11 +83,12 @@ function showCompleted() {
       listItems[w].classList.add("hide-me");
     }
   }
+  countListItems();
 }
 
-clearCompleted.addEventListener("click", clearCompletedFunc);
 filterByActive.addEventListener("click", showActive);
 filterByCompleted.addEventListener("click", showCompleted);
 filterAll.addEventListener("click", showAll);
+clearCompleted.addEventListener("click", clearCompletedFunc);
 
 countListItems();
