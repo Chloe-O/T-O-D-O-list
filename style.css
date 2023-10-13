@@ -157,4 +157,8 @@ body #container #foot .filter-btns #selectActive {
   margin: 0 20px;
 }
 
+.hide-me {
+  display: none !important;
+}
+
 /*# sourceMappingURL=style.css.map */

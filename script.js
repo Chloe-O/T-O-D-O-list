@@ -7,7 +7,9 @@ const addItem = document.getElementById("addItemBtn");
 const todoInput = document.getElementById("todoInput");
 const filterByActive = document.getElementById("selectActive");
 const filterByCompleted = document.getElementById("selectCompleted");
-const showAll = document.getElementById("selectAll");
+const filterAll = document.getElementById("selectAll");
+
+let currentListItem = document.getElementsByClassName("li-complete");
 
 const toDoArray = [];
 // const deletedItems = [];
@@ -35,7 +37,6 @@ addItem.addEventListener("click", () => {
 //Check off items
 todoList.addEventListener("click", (e) => {
   if (e.target.classList.contains("checkbox")) {
-    // console.log(e);
     e.target.parentElement.classList.toggle("li-complete");
     e.target.classList.toggle("checkbox-checked");
   }
@@ -43,29 +44,33 @@ todoList.addEventListener("click", (e) => {
 
 //Clear Completed items
 function clearCompletedFunc() {
-  let currentListItem = document.getElementsByClassName("li-complete");
   for (let i = 0; i < currentListItem.length; i++) {
     currentListItem[i].remove();
   }
 }
 
+//Filter by active items
+function showActive() {
+  for (let q = 0; q < currentListItem.length; q++) {
+    if (currentListItem[q].classList.contains("li-complete")) {
+      currentListItem[q].classList.add('hide-me');
+    }
+  }
+}
+
+function showCompleted() {
+  console.log("clicked");
+  for (let w = 0; w < currentListItem.length; w++) {
+    if ( !currentListItem[w].classList.contains("li-complete") ) {
+      currentListItem[w].classList.add('hide-me');
+    }
+  }
+}
+
+function showAll() {}
+
 clearCompleted.addEventListener("click", clearCompletedFunc);
-
-
-//Show active items
-
-
-filterByActive.addEventListener("click", () => {
-  console.log('hello')
-})
-//Delete item from list
-// todoList.addEventListener("click", (q) => {
-//   if (q.target.classList.contains("delete-me")) {
-//     console.log("delete me");
-//     // .remove()
-//   } else {
-
-//   }
-// });
+filterByActive.addEventListener("click", showActive);
+filterByCompleted.addEventListener("click", showCompleted);
 
 countListItems();
