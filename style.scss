@@ -112,8 +112,8 @@ body {
           // cursor: pointer;
 
           .delete-item {
-            opacity: 1;
-            pointer-events: visible;
+            // opacity: 1;
+            // pointer-events: visible;
             cursor: pointer;
           }
         }
@@ -134,8 +134,7 @@ body {
 
         .delete-item {
           margin-left: auto;
-          opacity: 0;
-          pointer-events: none;
+          // opacity: 0;
           display: flex;
           position: relative;
           z-index: 10;

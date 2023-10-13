@@ -1,6 +1,7 @@
 let todoList = document.getElementById("todoList");
 let listItems = document.getElementsByClassName("li-it");
 let checkboxToggle = document.querySelectorAll("li .checkbox");
+let deleteBtns = document.querySelectorAll(".delete-item");
 const itemsNum = document.getElementById("itemsNum");
 const clearCompleted = document.getElementById("clearCompleted");
 const addItem = document.getElementById("addItemBtn");
@@ -85,6 +86,13 @@ function showCompleted() {
   }
   countListItems();
 }
+
+// deleteBtns
+deleteBtns.forEach((btn) => {
+  btn.addEventListener("click", (m) => {
+    m.target.parentElement.parentElement.remove();
+  });
+});
 
 filterByActive.addEventListener("click", showActive);
 filterByCompleted.addEventListener("click", showCompleted);

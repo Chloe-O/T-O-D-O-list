@@ -94,8 +94,6 @@ body #container ul#todoList li {
   text-transform: capitalize;
 }
 body #container ul#todoList li:hover .delete-item {
-  opacity: 1;
-  pointer-events: visible;
   cursor: pointer;
 }
 body #container ul#todoList li .checkbox {
@@ -112,8 +110,6 @@ body #container ul#todoList li .checkbox:hover {
 }
 body #container ul#todoList li .delete-item {
   margin-left: auto;
-  opacity: 0;
-  pointer-events: none;
   display: flex;
   position: relative;
   z-index: 10;
