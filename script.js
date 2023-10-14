@@ -13,19 +13,20 @@ const filterAll = document.getElementById("selectAll");
 const modal = document.getElementById("modal-overlay");
 
 //Count list items
-function countListItems() {
-  let li = document.getElementsByClassName("li-it");
-  for (let x = 0; x < li.length; x++) {
-    if (!li[x].classList.contains("li-complete")) {
-      itemsNum.innerHTML = x + 1;
-    }
-  }
-}
+// function countListItems() {
+//   let li = document.getElementsByClassName("li-it");
+//   for (let x = 0; x < li.length; x++) {
+//     if (!li[x].classList.contains("li-complete")) {
+//       itemsNum.innerHTML = x + 1;
+//     }
+//   }
+// }
 
 //Input new list item
 addItem.addEventListener("click", () => {
   if (todoInput.value) {
     todoList.innerHTML += `<li class="li-it" ><div class="checkbox"></div>${todoInput.value} <span class="delete-item"> <img src="/images/icon-cross.svg" alt="X"> </span></li>`;
+    todoInput.value = "";
   } else {
   }
 });
@@ -93,4 +94,3 @@ filterByCompleted.addEventListener("click", showCompleted);
 filterAll.addEventListener("click", showAll);
 clearCompleted.addEventListener("click", clearCompletedFunc);
 
-countListItems();
