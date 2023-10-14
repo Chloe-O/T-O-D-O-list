@@ -2,6 +2,7 @@ let todoList = document.getElementById("todoList");
 let listItems = document.getElementsByClassName("li-it");
 let checkboxToggle = document.querySelectorAll("li .checkbox");
 let deleteBtns = document.querySelectorAll(".delete-item");
+
 const itemsNum = document.getElementById("itemsNum");
 const clearCompleted = document.getElementById("clearCompleted");
 const addItem = document.getElementById("addItemBtn");
@@ -9,16 +10,13 @@ const todoInput = document.getElementById("todoInput");
 const filterByActive = document.getElementById("selectActive");
 const filterByCompleted = document.getElementById("selectCompleted");
 const filterAll = document.getElementById("selectAll");
-
-// let currentListItem = document.getElementsByClassName("li-complete");
-
-const toDoArray = [];
+const modal = document.getElementById("modal-overlay");
 
 //Count list items
 function countListItems() {
-  // let listItemsNo = 0;
-  for (let x = 0; x < listItems.length; x++) {
-    if (!listItems[x].classList.contains("li-complete")) {
+  let li = document.getElementsByClassName("li-it");
+  for (let x = 0; x < li.length; x++) {
+    if (!li[x].classList.contains("li-complete")) {
       itemsNum.innerHTML = x + 1;
     }
   }
@@ -27,15 +25,9 @@ function countListItems() {
 //Input new list item
 addItem.addEventListener("click", () => {
   if (todoInput.value) {
-    toDoArray.push(
-      `<li class="li-it" ><div class="checkbox"></div>${todoInput.value} <span class="delete-item"> <img src="/images/icon-cross.svg" alt="X"> </span></li>`
-    );
-    todoInput.value = "";
-    todoList.innerHTML += toDoArray[toDoArray.length - 1];
+    todoList.innerHTML += `<li class="li-it" ><div class="checkbox"></div>${todoInput.value} <span class="delete-item"> <img src="/images/icon-cross.svg" alt="X"> </span></li>`;
   } else {
-    //error message in DOM
   }
-  countListItems();
 });
 
 //Check off items
@@ -44,18 +36,7 @@ todoList.addEventListener("click", (e) => {
     e.target.parentElement.classList.toggle("li-complete");
     e.target.classList.toggle("checkbox-checked");
   }
-  countListItems();
 });
-
-//Clear Completed items
-function clearCompletedFunc() {
-  for (let i = 0; i < listItems.length; i++) {
-    if (listItems[i].classList.contains("li-complete")) {
-      listItems[i].remove();
-    }
-  }
-  countListItems();
-}
 
 //Show all items
 function showAll() {
@@ -84,7 +65,6 @@ function showCompleted() {
       listItems[w].classList.add("hide-me");
     }
   }
-  countListItems();
 }
 
 // deleteBtns
@@ -93,6 +73,20 @@ deleteBtns.forEach((btn) => {
     m.target.parentElement.parentElement.remove();
   });
 });
+
+//Delete all completed items
+function clearCompletedFunc() {
+  let completedLi = document.getElementsByClassName("li-it");
+  for (let i = 0; i < completedLi.length; i++) {
+    if (completedLi[i].classList.contains("li-complete")) {
+      completedLi[i].remove();
+    }
+  }
+}
+
+function showModal() {
+  modal.classList.add("");
+}
 
 filterByActive.addEventListener("click", showActive);
 filterByCompleted.addEventListener("click", showCompleted);

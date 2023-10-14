@@ -197,3 +197,44 @@ body {
 .hide-me {
   display: none !important;
 }
+
+#modal-overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(#000, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+
+  #modal {
+    background: $input-list-bg;
+    height: 250px;
+    width: 300px;
+    border-radius: 5px;
+    padding: 50px 20px 15px 20px;
+    text-align: center;
+    box-shadow: 8px 8px 15px -3px rgba(0, 0, 0, 0.9);
+
+    h2 {
+      color: #fff;
+    }
+
+    p {
+      color: #fff;
+    }
+
+    #closeModal {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.display-modal {
+  display: flex !important;
+}
