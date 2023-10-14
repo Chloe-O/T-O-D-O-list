@@ -70,8 +70,9 @@ function showCompleted() {
 
 // deleteBtns
 deleteBtns.forEach((btn) => {
-  btn.addEventListener("click", (m) => {
-    m.target.parentElement.parentElement.remove();
+  btn.addEventListener("click", (e) => {
+    console.log(btn);
+    // e.target.parentElement.parentElement.remove();
   });
 });
 
@@ -93,4 +94,3 @@ filterByActive.addEventListener("click", showActive);
 filterByCompleted.addEventListener("click", showCompleted);
 filterAll.addEventListener("click", showAll);
 clearCompleted.addEventListener("click", clearCompletedFunc);
-
