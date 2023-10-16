@@ -1,7 +1,6 @@
 let todoList = document.getElementById("todoList");
 let listItems = document.getElementsByClassName("li-it");
 let checkboxToggle = document.querySelectorAll("li .checkbox");
-let deleteBtns = document.querySelectorAll(".delete-item");
 
 const itemsNum = document.getElementById("itemsNum");
 const clearCompleted = document.getElementById("clearCompleted");
@@ -68,14 +67,6 @@ function showCompleted() {
   }
 }
 
-// deleteBtns
-deleteBtns.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    console.log(btn);
-    // e.target.parentElement.parentElement.remove();
-  });
-});
-
 //Delete all completed items
 function clearCompletedFunc() {
   let completedLi = document.getElementsByClassName("li-it");
@@ -86,9 +77,22 @@ function clearCompletedFunc() {
   }
 }
 
-function showModal() {
-  modal.classList.add("");
+function deleteItem() {
+  let itemToBeDeleted = document.getElementsByClassName("delete-item");
+
+  for (let m = 0; m < itemToBeDeleted.length; m++) {
+    console.log(itemToBeDeleted[m].parentElement);
+    itemToBeDeleted[m].addEventListener("click", (e) => {
+      e.target.parentElement.parentElement.remove();
+    });
+  }
 }
+
+deleteItem();
+
+// function showModal() {
+//   modal.classList.add("");
+// }
 
 filterByActive.addEventListener("click", showActive);
 filterByCompleted.addEventListener("click", showCompleted);
