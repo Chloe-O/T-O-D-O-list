@@ -91,7 +91,6 @@ body #container ul#todoList li {
   align-items: center;
   list-style-type: none;
   border-bottom: 1px solid rgba(147, 148, 165, 0.3);
-  text-transform: capitalize;
 }
 body #container ul#todoList li:hover .delete-item {
   cursor: pointer;
