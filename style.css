@@ -134,7 +134,7 @@ body #container ul#todoList .li-complete {
 body #container #foot {
   background: hsl(235, 24%, 19%);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: 60px;
   line-height: 60px;
   border-radius: 0 0 5px 5px;
