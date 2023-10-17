@@ -13,7 +13,8 @@ const modal = document.getElementById("modal-overlay");
 
 function addNewItem() {
   if (todoInput.value) {
-    todoList.innerHTML += `<li class="li-it" ><div class="checkbox"></div>${todoInput.value} <span class="delete-item"> <img src="/images/icon-cross.svg" alt="X"> </span></li>`;
+    con
+    todoList.innerHTML += `<li class="li-it" ><div class="checkbox"></div>${todoInput.value.trim()} <span class="delete-item"> <img src="/images/icon-cross.svg" alt="X"> </span></li>`;
     todoInput.value = "";
     todoInput.focus();
   }
