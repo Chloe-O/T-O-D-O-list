@@ -29,8 +29,8 @@ todoInput.addEventListener("keyup", (e) => {
 //Check off items
 todoList.addEventListener("click", (e) => {
   if (e.target.classList.contains("checkbox")) {
-    e.target.parentElement.classList.toggle("li-complete");
-    e.target.classList.toggle("checkbox-checked");
+    e.target.parentElement.classList.toggle("complete");
+    e.target.classList.toggle("checked");
   }
 });
 

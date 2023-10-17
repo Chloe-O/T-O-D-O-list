@@ -114,10 +114,10 @@ body #container ul#todoList li .delete-item {
   z-index: 10;
   width: fit-content;
 }
-body #container ul#todoList li .checkbox-checked {
+body #container ul#todoList li .checked {
   background: linear-gradient(105deg, #57ddff, #c058f3);
 }
-body #container ul#todoList li .checkbox-checked:before {
+body #container ul#todoList li .checked:before {
   position: absolute;
   content: "";
   background: url(images/icon-check.svg) center no-repeat;
@@ -126,7 +126,7 @@ body #container ul#todoList li .checkbox-checked:before {
   width: 100%;
   height: 100%;
 }
-body #container ul#todoList .li-complete {
+body #container ul#todoList .complete {
   text-decoration: line-through;
   color: hsl(236, 9%, 61%);
 }
