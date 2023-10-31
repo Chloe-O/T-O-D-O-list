@@ -13,7 +13,6 @@ const modal = document.getElementById("modal-overlay");
 
 function addNewItem() {
   if (todoInput.value) {
-    con
     todoList.innerHTML += `<li class="li-it" ><div class="checkbox"></div>${todoInput.value.trim()} <span class="delete-item"> <img src="/images/icon-cross.svg" alt="X"> </span></li>`;
     todoInput.value = "";
     todoInput.focus();
@@ -65,13 +64,10 @@ function showCompleted() {
 }
 
 function deleteItem() {
-  let itemToBeDeleted = document.getElementsByClassName("delete-item");
+  // let itemToBeDeleted = document.getElementsByClassName("delete-item");
 
-  for (let m = 0; m < itemToBeDeleted.length; m++) {
-    itemToBeDeleted[m].addEventListener("click", (e) => {
-      e.target.parentElement.parentElement.remove();
-    });
-  }
+  let itemToBeDeleted = document.querySelectorAll("checked");
+  console.log(itemToBeDeleted);
 }
 
 filterByActive.addEventListener("click", showActive);
